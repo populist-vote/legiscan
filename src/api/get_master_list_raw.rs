@@ -86,12 +86,12 @@ impl LegiscanProxy {
 async fn test_get_master_list_raw_by_state() {
     let proxy = LegiscanProxy::new().unwrap();
     let masterlist = proxy.get_master_list_raw_by_state("CO").await.unwrap();
-    assert_eq!(masterlist.len() >= 2, true);
+    assert!(masterlist.len() >= 2);
 }
 
 #[tokio::test]
 async fn test_get_master_list_raw_by_session() {
     let proxy = LegiscanProxy::new().unwrap();
     let masterlist = proxy.get_master_list_raw_by_session(1797).await.unwrap();
-    assert_eq!(masterlist.len() >= 2, true);
+    assert!(masterlist.len() >= 2);
 }

@@ -88,7 +88,7 @@ async fn test_search() {
         .unwrap();
     assert_eq!(search_results.results.len(), 0);
     let search_results = proxy.search("CO", "tobacco", None, None).await.unwrap();
-    assert_eq!(search_results.results.len() > 0, true);
+    assert!(!search_results.results.is_empty());
     let search_results = proxy
         .search("CO", "marijuana", Some(2020), None)
         .await

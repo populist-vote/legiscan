@@ -82,7 +82,7 @@ impl LegiscanProxy {
 async fn test_get_session_list() {
     let proxy = LegiscanProxy::new().unwrap();
     let session_list = proxy.get_session_list("CO").await.unwrap();
-    assert_eq!(session_list.len() >= 15, true);
+    assert!(session_list.len() >= 15);
 }
 
 #[tokio::test]
