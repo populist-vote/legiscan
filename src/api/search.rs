@@ -1,20 +1,20 @@
 use crate::{Error, LegiscanProxy};
 use serde::{Deserialize, Serialize};
 
-#[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
+#[derive(Default, Debug, Clone, PartialEq, Eq, Serialize, Deserialize)]
 pub struct SearchResponse {
     pub status: String,
     #[serde(rename = "searchresult")]
     pub search_results: serde_json::Value,
 }
 
-#[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
+#[derive(Default, Debug, Clone, PartialEq, Eq, Serialize, Deserialize)]
 pub struct SearchResults {
     pub summary: Summary,
     pub results: Vec<SearchResult>,
 }
 
-#[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
+#[derive(Default, Debug, Clone, PartialEq, Eq, Serialize, Deserialize)]
 pub struct Summary {
     pub page: String,
     pub range: String,
@@ -22,7 +22,7 @@ pub struct Summary {
     pub count: i64,
 }
 
-#[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
+#[derive(Default, Debug, Clone, PartialEq, Eq, Serialize, Deserialize)]
 pub struct SearchResult {
     pub relevance: i64,
     pub state: String,

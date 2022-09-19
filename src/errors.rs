@@ -15,13 +15,13 @@ pub enum Error {
     Api(String),
 }
 
-#[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
+#[derive(Default, Debug, Clone, Serialize, Deserialize)]
 pub struct LegiscanErrorResponse {
     pub status: String,
     pub alert: Alert,
 }
 
-#[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
+#[derive(Default, Debug, Clone, PartialEq, Eq, Serialize, Deserialize)]
 pub struct Alert {
     pub message: String,
 }

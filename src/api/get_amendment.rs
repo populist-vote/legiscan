@@ -1,13 +1,13 @@
 use crate::{Error, LegiscanProxy};
 use serde::{Deserialize, Serialize};
 
-#[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
+#[derive(Default, Debug, Clone, PartialEq, Eq, Serialize, Deserialize)]
 pub struct GetAmendmentResponse {
     pub status: String,
     pub amendment: Amendment,
 }
 
-#[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
+#[derive(Default, Debug, Clone, PartialEq, Eq, Serialize, Deserialize)]
 pub struct Amendment {
     pub amendment_id: i32,
     pub chamber: String,

@@ -1,13 +1,13 @@
 use crate::{Error, LegiscanProxy};
 use serde::{Deserialize, Serialize};
 
-#[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
+#[derive(Default, Debug, Clone, PartialEq, Eq, Serialize, Deserialize)]
 pub struct GetSessionListResponse {
     pub status: String,
     pub sessions: Vec<Session>,
 }
 
-#[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
+#[derive(Default, Debug, Clone, PartialEq, Eq, Serialize, Deserialize)]
 pub struct Session {
     pub session_id: i64,
     pub state_id: i64,
@@ -19,14 +19,14 @@ pub struct Session {
     pub session_hash: Option<String>,
 }
 
-#[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
+#[derive(Default, Debug, Clone, PartialEq, Eq, Serialize, Deserialize)]
 pub struct GetSessionPeopleResponse {
     pub status: String,
     #[serde(rename = "sessionpeople")]
     pub session_people: SessionPeople,
 }
 
-#[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
+#[derive(Default, Debug, Clone, PartialEq, Eq, Serialize, Deserialize)]
 pub struct SessionPeople {
     session: Session,
     people: Vec<crate::api::get_person::Person>,

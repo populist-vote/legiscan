@@ -3,27 +3,27 @@ use serde::{Deserialize, Serialize};
 
 use super::Person;
 
-#[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
+#[derive(Default, Debug, Clone, PartialEq, Eq, Serialize, Deserialize)]
 pub struct GetSponsoredListResponse {
     pub status: String,
     #[serde(rename = "sponsoredbills")]
     pub sponsored_bills: SponsoredBills,
 }
 
-#[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
+#[derive(Default, Debug, Clone, PartialEq, Eq, Serialize, Deserialize)]
 pub struct SponsoredBills {
     pub sponsor: Person,
     pub sessions: Vec<Session>,
     pub bills: Vec<BillInfo>,
 }
 
-#[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
+#[derive(Default, Debug, Clone, PartialEq, Eq, Serialize, Deserialize)]
 pub struct Session {
     pub session_id: i32,
     pub session_name: String,
 }
 
-#[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
+#[derive(Default, Debug, Clone, PartialEq, Eq, Serialize, Deserialize)]
 pub struct BillInfo {
     pub session_id: i32,
     pub bill_id: i32,

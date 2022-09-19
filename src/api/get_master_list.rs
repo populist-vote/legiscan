@@ -6,7 +6,7 @@ struct GetMasterListResponse {
     status: String,
     masterlist: serde_json::Value,
 }
-#[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
+#[derive(Default, Debug, Clone, PartialEq, Eq, Serialize, Deserialize)]
 pub struct MasterListBill {
     pub bill_id: i32,
     pub number: String,

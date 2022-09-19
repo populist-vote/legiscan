@@ -7,7 +7,7 @@ pub struct GetBillResponse {
     bill: Bill,
 }
 
-#[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
+#[derive(Default, Debug, Clone, PartialEq, Eq, Serialize, Deserialize)]
 #[cfg_attr(
     feature = "async-graphql",
     derive(async_graphql::SimpleObject),
@@ -60,6 +60,7 @@ impl Bill {
     Debug,
     Clone,
     PartialEq,
+    Eq,
     Serialize,
     Deserialize,
     num_enum::TryFromPrimitive,
@@ -78,7 +79,7 @@ pub enum BillStatus {
     Failed = 6,
 }
 
-#[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
+#[derive(Default, Debug, Clone, PartialEq, Eq, Serialize, Deserialize)]
 #[cfg_attr(feature = "async-graphql", derive(async_graphql::SimpleObject))]
 pub struct Session {
     pub session_id: i32,
@@ -89,14 +90,14 @@ pub struct Session {
     pub special: i32,
 }
 
-#[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
+#[derive(Default, Debug, Clone, PartialEq, Eq, Serialize, Deserialize)]
 #[cfg_attr(feature = "async-graphql", derive(async_graphql::SimpleObject))]
 pub struct Progress {
     pub date: String,
     pub event: i32,
 }
 
-#[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
+#[derive(Default, Debug, Clone, PartialEq, Eq, Serialize, Deserialize)]
 #[cfg_attr(feature = "async-graphql", derive(async_graphql::SimpleObject))]
 pub struct Committee {
     pub committee_id: i32,
@@ -105,7 +106,7 @@ pub struct Committee {
     pub name: String,
 }
 
-#[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
+#[derive(Default, Debug, Clone, PartialEq, Eq, Serialize, Deserialize)]
 #[cfg_attr(feature = "async-graphql", derive(async_graphql::SimpleObject))]
 pub struct Referral {
     pub date: String,
@@ -115,7 +116,7 @@ pub struct Referral {
     pub name: String,
 }
 
-#[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
+#[derive(Default, Debug, Clone, PartialEq, Eq, Serialize, Deserialize)]
 #[cfg_attr(feature = "async-graphql", derive(async_graphql::SimpleObject))]
 pub struct History {
     pub date: String,
@@ -125,7 +126,7 @@ pub struct History {
     pub importance: i32,
 }
 
-#[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
+#[derive(Default, Debug, Clone, PartialEq, Eq, Serialize, Deserialize)]
 #[cfg_attr(feature = "async-graphql", derive(async_graphql::SimpleObject))]
 pub struct Sponsor {
     pub people_id: i32,
@@ -151,7 +152,7 @@ pub struct Sponsor {
     pub committee_id: serde_json::Value, // Sometimes a string, sometimes an i32,
 }
 
-#[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
+#[derive(Default, Debug, Clone, PartialEq, Eq, Serialize, Deserialize)]
 #[cfg_attr(feature = "async-graphql", derive(async_graphql::SimpleObject))]
 pub struct Sast {
     pub type_id: i32,
@@ -161,14 +162,14 @@ pub struct Sast {
     pub sast_bill_id: i32,
 }
 
-#[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
+#[derive(Default, Debug, Clone, PartialEq, Eq, Serialize, Deserialize)]
 #[cfg_attr(feature = "async-graphql", derive(async_graphql::SimpleObject))]
 pub struct Subject {
     pub subject_id: i32,
     pub subject_name: String,
 }
 
-#[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
+#[derive(Default, Debug, Clone, PartialEq, Eq, Serialize, Deserialize)]
 #[cfg_attr(feature = "async-graphql", derive(async_graphql::SimpleObject))]
 pub struct Text {
     pub doc_id: i32,
@@ -183,7 +184,7 @@ pub struct Text {
     pub text_size: i32,
 }
 
-#[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
+#[derive(Default, Debug, Clone, PartialEq, Eq, Serialize, Deserialize)]
 #[cfg_attr(feature = "async-graphql", derive(async_graphql::SimpleObject))]
 pub struct Vote {
     pub roll_call_id: i32,
@@ -203,7 +204,7 @@ pub struct Vote {
     pub state_link: String,
 }
 
-#[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
+#[derive(Default, Debug, Clone, PartialEq, Eq, Serialize, Deserialize)]
 #[cfg_attr(feature = "async-graphql", derive(async_graphql::SimpleObject))]
 pub struct Amendment {
     pub amendment_id: i32,
@@ -219,7 +220,7 @@ pub struct Amendment {
     pub state_link: String,
 }
 
-#[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
+#[derive(Default, Debug, Clone, PartialEq, Eq, Serialize, Deserialize)]
 #[cfg_attr(feature = "async-graphql", derive(async_graphql::SimpleObject))]
 pub struct Supplement {
     pub supplement_id: i32,
@@ -235,7 +236,7 @@ pub struct Supplement {
     pub state_link: String,
 }
 
-#[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
+#[derive(Default, Debug, Clone, PartialEq, Eq, Serialize, Deserialize)]
 #[cfg_attr(feature = "async-graphql", derive(async_graphql::SimpleObject))]
 pub struct Calendar {
     pub type_id: i32,
