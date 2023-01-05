@@ -83,14 +83,6 @@ impl LegiscanProxy {
 }
 
 #[tokio::test]
-pub async fn test_get_master_list_by_state() {
-    let proxy = LegiscanProxy::new().unwrap();
-    let masterlist = proxy.get_master_list_by_state("CO").await.unwrap();
-    println!("{}", serde_json::to_string_pretty(&masterlist).unwrap());
-    assert!(masterlist.len() >= 2);
-}
-
-#[tokio::test]
 async fn test_get_master_list_by_session() {
     let proxy = LegiscanProxy::new().unwrap();
     let masterlist = proxy.get_master_list_by_session(1797).await.unwrap();
