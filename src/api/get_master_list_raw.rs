@@ -9,9 +9,9 @@ struct GetMasterListRawResponse {
 
 #[derive(Serialize, Deserialize)]
 pub struct MasterListRawBill {
-    bill_id: i32,
-    number: String,
-    change_hash: String,
+    pub bill_id: i32,
+    pub number: String,
+    pub change_hash: String,
 }
 
 impl LegiscanProxy {
