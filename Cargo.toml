@@ -19,4 +19,4 @@ thiserror = "1.0.30"
 tokio = { version = "1.21.1", features = ["full"] }
 num_enum = "0.5.5"
 strum_macros = "0.23.1"
-async-graphql = { version = "5.0.5", optional = true }
+async-graphql = { version = "5.0.10", optional = true }

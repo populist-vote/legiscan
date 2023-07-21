@@ -22,12 +22,12 @@ pub struct RollCall {
     pub passed: i64,
     pub chamber: String,
     pub chamber_id: i64,
-    pub votes: Vec<Vote>,
+    pub votes: Vec<RollCallVote>,
 }
 
 #[derive(Default, Debug, Clone, PartialEq, Eq, Serialize, Deserialize)]
 #[cfg_attr(feature = "async-graphql", derive(async_graphql::SimpleObject))]
-pub struct Vote {
+pub struct RollCallVote {
     pub people_id: i64,
     pub vote_id: i64,
     pub vote_text: String,

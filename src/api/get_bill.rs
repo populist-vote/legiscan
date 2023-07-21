@@ -42,7 +42,7 @@ pub struct Bill {
     pub sasts: Vec<Sast>,
     pub subjects: Vec<Subject>,
     pub texts: Vec<Text>,
-    pub votes: Vec<Vote>,
+    pub votes: Vec<BillVote>,
     pub amendments: Vec<Amendment>,
     pub supplements: Vec<Supplement>,
     pub calendar: Vec<Calendar>,
@@ -186,7 +186,7 @@ pub struct Text {
 
 #[derive(Default, Debug, Clone, PartialEq, Eq, Serialize, Deserialize)]
 #[cfg_attr(feature = "async-graphql", derive(async_graphql::SimpleObject))]
-pub struct Vote {
+pub struct BillVote {
     pub roll_call_id: i32,
     /// This field is not returned from get_bill, but can be populated with a subsequent call to `get_roll_call`
     pub roll_call_data: Option<RollCall>,
