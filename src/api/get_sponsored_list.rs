@@ -13,12 +13,12 @@ pub struct GetSponsoredListResponse {
 #[derive(Default, Debug, Clone, PartialEq, Eq, Serialize, Deserialize)]
 pub struct SponsoredBills {
     pub sponsor: Person,
-    pub sessions: Vec<Session>,
+    pub sessions: Vec<SponsoredListSession>,
     pub bills: Vec<BillInfo>,
 }
 
 #[derive(Default, Debug, Clone, PartialEq, Eq, Serialize, Deserialize)]
-pub struct Session {
+pub struct SponsoredListSession {
     pub session_id: i32,
     pub session_name: String,
 }

@@ -5,11 +5,11 @@ use serde::{Deserialize, Serialize};
 pub struct GetDatasetListResponse {
     pub status: String,
     #[serde(rename = "datasetlist")]
-    pub dataset_list: Vec<Dataset>,
+    pub dataset_list: Vec<DatasetList>,
 }
 
 #[derive(Default, Debug, Clone, PartialEq, Eq, Serialize, Deserialize)]
-pub struct Dataset {
+pub struct DatasetList {
     pub state_id: i32,
     pub session_id: i32,
     pub special: i32,
@@ -30,7 +30,7 @@ impl LegiscanProxy {
         &self,
         state: Option<&str>,
         year: Option<&str>,
-    ) -> Result<Vec<Dataset>, Error> {
+    ) -> Result<Vec<DatasetList>, Error> {
         let url = format!(
             "{base_url}?key={key}&op={operation}&state={state}&year={year}",
             base_url = self.base_url,

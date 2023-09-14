@@ -17,7 +17,7 @@ pub struct Bill {
     pub bill_id: i32,
     pub change_hash: String,
     pub session_id: i32,
-    pub session: Session,
+    pub session: BillSession,
     pub url: String,
     pub state_link: String,
     pub completed: i32,
@@ -43,8 +43,8 @@ pub struct Bill {
     pub subjects: Vec<Subject>,
     pub texts: Vec<Text>,
     pub votes: Vec<BillVote>,
-    pub amendments: Vec<Amendment>,
-    pub supplements: Vec<Supplement>,
+    pub amendments: Vec<BillAmendment>,
+    pub supplements: Vec<BillSupplement>,
     pub calendar: Vec<Calendar>,
 }
 
@@ -81,7 +81,7 @@ pub enum BillStatus {
 
 #[derive(Default, Debug, Clone, PartialEq, Eq, Serialize, Deserialize)]
 #[cfg_attr(feature = "async-graphql", derive(async_graphql::SimpleObject))]
-pub struct Session {
+pub struct BillSession {
     pub session_id: i32,
     pub session_name: String,
     pub session_title: String,
@@ -206,7 +206,7 @@ pub struct BillVote {
 
 #[derive(Default, Debug, Clone, PartialEq, Eq, Serialize, Deserialize)]
 #[cfg_attr(feature = "async-graphql", derive(async_graphql::SimpleObject))]
-pub struct Amendment {
+pub struct BillAmendment {
     pub amendment_id: i32,
     pub adopted: i32,
     pub chamber: String,
@@ -222,7 +222,7 @@ pub struct Amendment {
 
 #[derive(Default, Debug, Clone, PartialEq, Eq, Serialize, Deserialize)]
 #[cfg_attr(feature = "async-graphql", derive(async_graphql::SimpleObject))]
-pub struct Supplement {
+pub struct BillSupplement {
     pub supplement_id: i32,
     pub date: String,
     #[serde(rename = "type")]
