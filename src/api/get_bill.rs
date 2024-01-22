@@ -3,8 +3,8 @@ use serde::{Deserialize, Serialize};
 
 #[derive(Serialize, Deserialize)]
 pub struct GetBillResponse {
-    status: String,
-    bill: Bill,
+    pub status: Option<String>,
+    pub bill: Bill,
 }
 
 #[derive(Default, Debug, Clone, PartialEq, Eq, Serialize, Deserialize)]

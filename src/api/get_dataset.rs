@@ -22,7 +22,7 @@ pub struct Dataset {
 
 impl LegiscanProxy {
     /// Retrieve an individual dataset for a specific `session_id`
-    // weekly
+    /// Updated weekly
     pub async fn get_dataset(&self, session_id: i32, access_key: &str) -> Result<Dataset, Error> {
         let url = format!(
             "{base_url}?key={key}&op={operation}&id={session_id}&access_key={access_key}",
@@ -51,6 +51,7 @@ impl LegiscanProxy {
 async fn test_get_dataset() {
     let proxy = LegiscanProxy::new().unwrap();
     let dataset = proxy
+        // Uses the test/public access key from the example in the docs
         .get_dataset(1789, "55jFZUhExATO7PdWI5vJJS")
         .await
         .unwrap();
