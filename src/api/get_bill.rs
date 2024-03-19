@@ -9,7 +9,7 @@ pub struct GetBillResponse {
 
 #[derive(Default, Debug, Clone, PartialEq, Eq, Serialize, Deserialize)]
 #[cfg_attr(feature = "async-graphql", derive(async_graphql::SimpleObject))]
-#[graphql(complex)] 
+#[graphql(complex)]
 pub struct Bill {
     pub bill_id: i32,
     pub change_hash: String,
