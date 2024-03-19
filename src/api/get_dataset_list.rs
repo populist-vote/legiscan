@@ -58,6 +58,7 @@ async fn test_get_dataset_list() {
         .get_dataset_list(Some("CO"), Some("2020"))
         .await
         .unwrap();
+    println!("{}", serde_json::to_string_pretty(&dataset_list).unwrap());
     assert_eq!(dataset_list.len(), 2);
     assert_eq!(dataset_list[0].session_name, "2020 First Special Session");
 }

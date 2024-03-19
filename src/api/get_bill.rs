@@ -8,11 +8,8 @@ pub struct GetBillResponse {
 }
 
 #[derive(Default, Debug, Clone, PartialEq, Eq, Serialize, Deserialize)]
-#[cfg_attr(
-    feature = "async-graphql",
-    derive(async_graphql::SimpleObject),
-    graphql(complex)
-)]
+#[cfg_attr(feature = "async-graphql", derive(async_graphql::SimpleObject))]
+#[graphql(complex)] 
 pub struct Bill {
     pub bill_id: i32,
     pub change_hash: String,
@@ -34,7 +31,7 @@ pub struct Bill {
     pub current_body: String,
     pub current_body_id: i32,
     pub title: String,
-    pub committee: serde_json::Value, // sometimes a Commitee, sometimes an empty array :(
+    pub committee: serde_json::Value, // sometimes a Committee, sometimes an empty array :(
     pub referrals: Option<Vec<Referral>>,
     pub pending_committee_id: i32,
     pub history: Vec<History>,
